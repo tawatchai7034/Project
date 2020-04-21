@@ -6,6 +6,15 @@ export const typeDefs = gql`
         name: String!
     }
 
+    type  Product{
+    id:ID!
+    name:String!
+    user:User!
+    price:Float!
+    discription:String
+    createDate:Date!
+    }
+    
     type Query{
         me:user!
         user(id: ID!):user
@@ -13,6 +22,9 @@ export const typeDefs = gql`
         
         animal(id:ID!):Animal
         animals:[Animal]!
+
+        product(id:ID!):Product
+        products:[Product]!
     }
     # การบ้านสร้าง type animal
     type Animal{

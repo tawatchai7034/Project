@@ -1,6 +1,7 @@
 import User from "../models/user";
 import bycrypt from "bcryptjs";
 import Animal from "../models/animal";
+import Product from "../models/product";
 
 const Mutation = {
     signUp: async (parent, args, context, info) => {
@@ -21,6 +22,26 @@ const Mutation = {
       const password = await bycrypt.hash(args.password, 10);
       return User.create({ ...args, email, password });
     },
+    // เชื่อมต่อ product กับ  user
+    createProduct:async(parent, args, context, info)=>{
+       const userId = "5e99b40476229e16e86c626e"
+       if(!args.name||!args.discription||!args.price){
+        throw new Error("Plaese enter name,discription,price");
+       }
+       const product = await Product.create({...args,user:userId})
+       const user = await User.findById(userId)
+       if(!user.products){
+         user.products=[product]
+       }
+       else{
+        user.products.push(product)
+       }
+       await user.save()
+       return  Product.findById(product.id).populate({
+        path: "user",
+        populate: { path: "products" }
+       })
+    },// เชื่อมต่อ product กับ  user
     // การบ้าน sign animal
     animalSign: async (parent, args, context, info) => {
       const an_name = args.an_name;
@@ -55,7 +76,7 @@ const Mutation = {
         } 
         //จบการบ้าน signUp animal
       return Animal.create({ ...args,an_name,an_age,an_discription,an_price});
-    }
+    }// การบ้าน sign animal
   };
   
 export default  Mutation

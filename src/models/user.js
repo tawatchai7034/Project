@@ -13,6 +13,15 @@ const SchemaUser = new mongoose.Schema ({
         password:{
             type: String,
             required: true
+        },
+        products:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"Product" 
+        }],
+        createDate:{
+            type:Date,
+            required: true,
+            default:()=>Date.now()
         }
 })
 const User = mongoose.model("User",SchemaUser)
