@@ -11,8 +11,8 @@ const Query = {
     user: (parent, args, context, info) => User.findById(args.id),
     users: (parent, args, context, info) => User.find({}),
     //  การบ้าน signUp animal
-    animal: (parent, args, context, info) => Animal.findById(args.an_id),
-    animals: (parent, args, context, info) => Animal.find({}),
+    animal:(parent, args, context, info)=> Animal.findById(args.id),
+    animals:(parent, args, context, info)=> Animal.find({})
   };
 
   export default Query

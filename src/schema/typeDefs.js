@@ -11,12 +11,12 @@ export const typeDefs = gql`
         user(id: ID!):user
         users:[user]!
         
-        animal(an_id:ID!):Animal
+        animal(id:ID!):Animal
         animals:[Animal]!
     }
     # การบ้านสร้าง type animal
     type Animal{
-    an_id: ID!
+    id: ID!
     an_name: String!
     an_discription: String
     an_age:Int!

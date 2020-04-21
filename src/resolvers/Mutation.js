@@ -51,7 +51,7 @@ const Mutation = {
         throw new Error("ถูกไปอีสั**");
       }
       if(args.an_price>=maxAnimalPrice){
-          throw new Error("`ขายให้**ม่ มึงสิ");
+          throw new Error("ขายให้**ม่ มึงสิ");
         } 
         //จบการบ้าน signUp animal
       return Animal.create({ ...args,an_name,an_age,an_discription,an_price});

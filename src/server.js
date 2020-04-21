@@ -1,6 +1,6 @@
 // export const Test= () =>console.log("wow wow wow");
-import fs from "fs"
-import path from  "path"
+import fs from "fs";
+import path from  "path";
 import { ApolloServer, gql } from 'apollo-server-express';
 // import   typeDefs from './schema/typeDefs';
 import   resolvers from  './resolvers/resolvers';
@@ -11,5 +11,5 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-// eieiei
+
 export default server;
