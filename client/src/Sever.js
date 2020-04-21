@@ -1,0 +1,1 @@
+export const Test= () =>console.log("wow wow wow");

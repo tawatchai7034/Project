@@ -1,0 +1,29 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+}
+#การบ้าน signUp animal
+type Animal{
+    an_id: ID!
+    an_name: String!
+    an_discription: String
+    an_age: Int!
+    an_price: Float!
+}
+
+type Mutation{
+    signUp(name: String!,email: String!,password: String!) : User
+    #การบ้าน signUp animal
+    animalSign(an_name: String!,an_discription: String,an_age:Int!,an_price:Float!):Animal
+}
+
+type Query{
+    # //me:user!
+    user(id: ID!):User
+    users:[User]!
+    #การบ้าน signUp animal
+    animal(an_id: ID!):Animal
+    animals:[Animal]!
+}
