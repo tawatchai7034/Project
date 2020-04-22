@@ -14,7 +14,7 @@ const createServer = async () =>{
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0-wkqwc.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
       { useUnifiedTopology: true }
     );
-    
+    mongoose.set('useFindAndModify',false);
 
     const app = express()
     server.applyMiddleware({ app });

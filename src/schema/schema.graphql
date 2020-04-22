@@ -35,6 +35,15 @@ type Mutation {
     an_price: Float!
   ): Animal
   createProduct(name: String!, price: Float!, discription: String): Product!
+
+  upDateProsuct(
+  id: ID!
+  name: String
+  price: Float
+  discription: String
+  ):Product!
+
+  deleteProduct(id:ID!):Product!
 }
 
 type Query {
